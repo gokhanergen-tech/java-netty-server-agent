@@ -1,0 +1,27 @@
+
+w
+java:S3740Z"/Provide the parametrized type for this generic.(Ç¾Ğºıÿÿÿÿ8å×Ø†‰3J$f869ffe0-dac1-46e6-806b-776acf2eec1f
+w
+java:S3740["/Provide the parametrized type for this generic.(¯åËüÿÿÿÿ8å×Ø†‰3J$66d2398c-78cd-4cff-a32d-6103ca2be8c1
+w
+java:S3740}"/Provide the parametrized type for this generic.(¥ïíïøÿÿÿÿ8å×Ø†‰3J$8af5440b-747a-47b4-b6f0-8f3d40f7dd7b
+x
+java:S3740€"/Provide the parametrized type for this generic.(Êİ’µûÿÿÿÿ8å×Ø†‰3J$1675de3d-18b6-45a3-b6c2-5ce2836cabfc
+s
+java:S3740Š"/Provide the parametrized type for this generic.(ë†Ä½8å×Ø†‰3J$873cfcb3-18a2-4b3b-a0b0-6f57b3176eb3
+x
+java:S3740—"/Provide the parametrized type for this generic.(¢•üûÿÿÿÿ8Ş½Û†‰3J$16fe25a0-fc28-4f84-b600-f073e768a4f2
+
+java:S1301F"KReplace this "switch" statement by "if" statements to increase readability.(¬“„÷8æ×Ø†‰3J$a9027660-360d-4af5-baf4-55bd1d01f840
+
+java:S1874*"9Remove this use of "NioEventLoopGroup"; it is deprecated.(€Û ïüÿÿÿÿ8…ØØ†‰3J$69ece81f-be78-437f-858c-85cfd39cc36a
+|
+java:S1874+"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ÎŠë×8…ØØ†‰3J$c541d9fb-a574-4b0f-90eb-09f67383150c
+l	java:S106C"+Replace this use of System.out by a logger.(‚š‰18‰ØØ†‰3J$ed59b120-2b0f-4abb-ae37-f9a4ace23c38
+›	java:S131F"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„÷8ŠØØ†‰3J$34c9897a-2887-4fb4-9c2e-68f71688472e
+m	java:S106m"+Replace this use of System.out by a logger.(Ã¶Ü8ØØ†‰3J$92e0e9fd-d3cd-43c0-930c-089b19f1a657
+r	java:S106z"+Replace this use of System.out by a logger.(«Õ§Îûÿÿÿÿ8ØØ†‰3J$0bef786a-a43e-4294-bfcf-d5786e07b71b
+‹
+java:S1128"HRemove this unused import 'io.netty.handler.codec.string.StringEncoder'.(ÃªÛ…8•ÿÚ†‰3J$15052f16-daa0-4768-9b39-65720a543148
+‹
+java:S1128"HRemove this unused import 'org.bouncycastle.crypto.engines.CAST5Engine'.(»­÷¢8•ÿÚ†‰3J$481b29c9-0420-40e4-823c-d08068ff7685

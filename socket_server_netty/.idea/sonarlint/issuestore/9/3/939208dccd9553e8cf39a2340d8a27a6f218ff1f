@@ -1,0 +1,14 @@
+
+r
+java:S1104"WMake agentWriter a static final constant or non-public and provide accessors if needed.(É”Á½üÿÿÿÿ
+r
+java:S1104"WMake agentReader a static final constant or non-public and provide accessors if needed.(•ì³Áøÿÿÿÿ
+L
+java:S1444"1Make this "public static agentWriter" field final(É”Á½üÿÿÿÿ
+L
+java:S1444"1Make this "public static agentReader" field final(•ì³Áøÿÿÿÿ
+U
+java:S1118	":Add a private constructor to hide the implicit public one.(’•Ñ®üÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(°Øš¤
+E	java:S106"+Replace this use of System.out by a logger.(·ê¯¨şÿÿÿÿ
+E	java:S106"+Replace this use of System.err by a logger.(‹Øïùÿÿÿÿ

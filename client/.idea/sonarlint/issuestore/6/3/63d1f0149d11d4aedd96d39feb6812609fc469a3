@@ -1,0 +1,7 @@
+
+™
+java:S1104"XMake objectMapper a static final constant or non-public and provide accessors if needed.(’ÄÈíüÿÿÿÿJ$ab983146-8103-4767-aeee-4ce0f8d125b4
+s
+java:S1444"2Make this "public static objectMapper" field final(’ÄÈíüÿÿÿÿJ$af7e08b1-04a5-465e-b82b-2ad1341750cc
+v
+java:S1118":Add a private constructor to hide the implicit public one.(üëÕJ$5741f07a-dd41-4aec-b6ad-7683baf067a4

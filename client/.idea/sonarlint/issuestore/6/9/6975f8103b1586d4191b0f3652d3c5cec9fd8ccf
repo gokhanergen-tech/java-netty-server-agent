@@ -1,0 +1,26 @@
+
+g	java:S112n"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ëáà†‰3
+L
+java:S3740J"/Provide the parametrized type for this generic.(ó»ãş8ìáà†‰3
+L
+java:S3740x"/Provide the parametrized type for this generic.(ô€ƒ©8ìáà†‰3
+R
+java:S3740¤"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8ìáà†‰3
+t
+java:S37768"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(·òşÿÿÿÿ8‡âà†‰3
+[
+java:S18749"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ä‚Õ ıÿÿÿÿ8‰âà†‰3
+|
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8‰âà†‰3
+L	java:S106H"+Replace this use of System.out by a logger.(†íÿ’ûÿÿÿÿ8âà†‰3
+L	java:S106c"+Replace this use of System.out by a logger.(ÿ†Ÿ·şÿÿÿÿ8‘âà†‰3
+X
+java:S2696t"6Make the enclosing method "static" or remove this set.(Ïïş¿úÿÿÿÿ8“âà†‰3
+M	java:S106‹"+Replace this use of System.out by a logger.(²Òçÿüÿÿÿÿ8•âà†‰3
+^	java:S125™"<This block of commented-out lines of code should be removed.(Ò™Áàúÿÿÿÿ8–âà†‰3
+H	java:S106¥"+Replace this use of System.out by a logger.(¸ô¤«8—âà†‰3
+M	java:S106¦"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8—âà†‰3
+^
+java:S1128"ARemove this unused import 'com.socket.client.client.ClientAsync'.(©Şûù8™âà†‰3
+a
+java:S1128"DRemove this unused import 'com.socket.client.client.MessageHandler'.(°‘«¸8™âà†‰3
