@@ -1,70 +1,136 @@
-/* Genel stiller */
+/* =================================================================== */
+/* TEMEL DARK THEME (KOYU TEMA) DEĞİŞKENLERİ                            */
+/* =================================================================== */
 .root {
-    -fx-font-family: "Arial";
+    -fx-base: #3C3F41;
+    -fx-background: #2B2B2B;
+    -fx-control-inner-background: #313335;
+    -fx-control-inner-background-alt: #2B2B2B;
+
+    -fx-text-fill: #E0E0E0;
+    -fx-prompt-text-fill: #757575;
+
+    -fx-accent: #007BFF;
+
     -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.left-pane {
-    -fx-background-color: #f0f0f0;
-}
-
-.user-list-view {
-    -fx-padding: 5px;
-}
-
-.message-list-view {
-    -fx-padding: 10px;
-}
-
-.chat-button {
-    -fx-padding: 10px;
-    -fx-width: 100px;
-}
-
-.wrapper-users{
-  -fx-padding: 16px;
-}
-
-.wrapper-chat-screen{
-  -fx-padding: 16px;
+/* =================================================================== */
+/* SOL TARAF (KULLANICI LİSTESİ)                                        */
+/* =================================================================== */
+.sidebar {
+    -fx-background-color: #313335;
+    -fx-pref-width: 220px;
+    -fx-border-color: #4A4A4A transparent transparent transparent;
+    -fx-border-width: 0 1 0 0;
 }
 
 .users-text {
- -fx-font-size: 14px;
+    -fx-font-size: 1.6em;
+    -fx-font-weight: bold;
+    -fx-fill: -fx-text-fill;
 }
 
-.circular-image {
-     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+.user-list-view {
+    -fx-background-color: -fx-control-inner-background;
+    -fx-border-width: 0;
 }
 
-.uiverse-button {
-    -fx-font-size: 18px;
+.user-list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E0E0E0;
+    -fx-padding: 10px 12px;
+    -fx-font-size: 1.1em;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+.user-list-view .list-cell:filled:hover {
+    -fx-background-color: -fx-base;
+}
+
+.user-list-view .list-cell:filled:selected {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+}
+
+/* =================================================================== */
+/* MERKEZ (SOHBET ALANI)                                               */
+/* =================================================================== */
+.chat-area {
+    -fx-background-color: -fx-background;
+}
+
+.message-list-view {
+    -fx-background-color: -fx-background;
+    -fx-border-width: 0;
+    -fx-padding: 16px;
+}
+
+/* =================================================================== */
+/* MESAJ YAZMA ALANI                                                   */
+/* =================================================================== */
+.input-area {
+    -fx-background-color: #313335;
+    -fx-border-color: #4A4A4A transparent transparent transparent;
+    -fx-border-width: 1px 0 0 0;
+}
+
+.message-input-area {
+    -fx-background-color: #3C3F41;
+    -fx-text-fill: #E0E0E0;
+    -fx-prompt-text-fill: #757575;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-border-color: #4A4A4A;
+    -fx-font-size: 1.1em;
+    -fx-pref-height: 80px;
+    -fx-wrap-text: true;
+}
+
+/* Yazı alanına odaklanınca */
+.message-input-area:focused {
+    -fx-border-color: -fx-accent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 123, 255, 0.3), 10, 0, 0, 0);
+}
+
+/* =================================================================== */
+/* İKON BUTONLARI                                                      */
+/* =================================================================== */
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px;
     -fx-cursor: hand;
-    -fx-background-radius: 0.3em;
-    -fx-padding: 8px 32px;
-    -fx-text-fill: #fff;
-
-    -fx-background-color: linear-gradient(to bottom, #89E5FF, #5468FF);
-    -fx-effect: dropshadow(three-pass-box, rgba(45, 35, 66, 0.4), 0.01em, 0, 0, 0),
-               dropshadow(three-pass-box, rgba(45, 35, 66, 0.3), 0.3em, 0, 0, 0.7em),
-               dropshadow(inner, rgba(58, 65, 111, 0.5), 0, -0.01em, 0, 0);
-
-    -fx-scale-x: 1.0;
-    -fx-scale-y: 1.0;
 }
 
-.uiverse-button:hover {
-    -fx-translate-y: -0.1em;
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
+.icon-button:hover {
+    -fx-background-color: #4A4A4A;
 }
 
-.uiverse-button:pressed {
-    -fx-translate-y: 0em;
-    -fx-scale-x: 0.95;
-    -fx-scale-y: 0.95;
+.icon-button:pressed {
+    -fx-background-color: #555555;
 }
 
-.uiverse-button .text {
-    -fx-padding: 0 2em;
+.icon-button .font-icon {
+    -fx-icon-size: 20;
+    -fx-icon-color: #B0B0B0;
+}
+
+.icon-button:hover .font-icon {
+    -fx-icon-color: white;
+}
+
+.send-button {
+    -fx-background-color: -fx-accent;
+}
+
+.send-button .font-icon {
+    -fx-icon-color: white;
+}
+
+.send-button:hover {
+    -fx-background-color: derive(-fx-accent, 20%);
 }

@@ -6,34 +6,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socket.client.MainScreenController">
+<VBox fx:controller="com.socket.client.MainScreenController"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      stylesheets="@main-style.css" styleClass="root" alignment="CENTER" spacing="20.0">
+
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
     </padding>
+
     <ImageView fx:id="userAvatar"
                fitHeight="100.0"
                fitWidth="100.0"
                pickOnBounds="true"
                preserveRatio="true"
-               styleClass="circular-image"
-    >
-    </ImageView>
-
-    <Label text="Kullanıcı Bilgileri">
-        <font>
-            <Font size="18.0" />
-        </font>
-        <padding>
-            <Insets bottom="10.0" />
-        </padding>
-    </Label>
-    <TextField fx:id="usernameField" promptText="Kullanıcı Adı" maxWidth="250.0" />
-    <TextField fx:id="surnameField" promptText="Soyadı" maxWidth="250.0" />
-    <Button fx:id="joinButton" text="Join" onAction="#handleJoinButtonClick" styleClass="uiverse-button">
-        <font>
-            <Font size="14.0" />
-        </font>
-    </Button>
+               styleClass="user-avatar"/> <Label text="Kullanıcı Bilgileri" styleClass="title-label"/>
+    <TextField fx:id="usernameField" promptText="Kullanıcı Adı" styleClass="input-field"/>
+    <Button fx:id="joinButton" text="Join" onAction="#handleJoinButtonClick" styleClass="join-button"/>
 </VBox>

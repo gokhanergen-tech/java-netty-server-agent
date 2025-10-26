@@ -1,2 +1,5 @@
 
-m	java:S106?"+Replace this use of System.out by a logger.(¹¿¸ú8è”°ê2J$bf706dd6-4f80-4237-8d99-c5d42e3b75bc
+r
+java:S16114"/Remove the parentheses around the "v" parameter(ˆ¢¯ý8ŒíÁ™¡3J$4581cd8c-e1e6-408f-8dae-3e2552596bee
+r	java:S1065"+Replace this use of System.out by a logger.(Äê×ƒÿÿÿÿÿ8ªÙê‡¡3J$e6aef23f-e157-4c5b-aa06-227d4e2366e6
+m	java:S106>"+Replace this use of System.out by a logger.(¹¿¸ú8Ÿ’Á™¡3J$094e309b-aff1-41a9-864f-e93a42439f20

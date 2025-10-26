@@ -1,6 +1,8 @@
 import asyncio
+import base64
 import json
 from agent import analyse_users
+from text_to_image import generate_image
 
 HOST = '127.0.0.1'  # Tüm IP'lerden dinle
 PORT = 9100       # Agent socket server portu
@@ -11,32 +13,47 @@ async def handle_client(reader, writer):
 
     try:
         while True:
-            data = await reader.read(4096)
-            
-            _user = json.loads(data.decode('utf-8'))
-            
+            # read one line instead of raw bytes
+            data = await reader.readline()
+
             if not data:
+                print("Connection closed by client.")
                 break
+            
+
+            decoded = data.decode('utf-8').strip()
+            if not decoded:
+                print("Empty string received.")
+                continue
 
             try:
-                print(_user)
-                message = _user["message"]
-                agent_response = analyse_users(message)
-                
-                response_message = None
-                if agent_response.__contains__("-1"):
-                    response_message = message
-                else:
-                    response_message = agent_response
-                
-                print(agent_response)
-                print(response_message)
-                
-                writer.write(f"{response_message.strip()}\n".encode())
-                await writer.drain()
+                _user = json.loads(decoded)
             except json.JSONDecodeError:
-                print("Taken invalid token")
-                
+                print(f"Invalid JSON received: {decoded}")
+                continue
+
+            process_type = _user.get("messageType")
+            message = _user.get("message")
+
+            response_message = None
+
+            if process_type == "TEXT":
+                # Agent işlemi simüle et
+                response_message = analyse_users(message)
+            elif process_type == "PROMPT":
+                # Base64 image handling
+                try:
+                    image_data = generate_image(message)
+        
+                    response_message = image_data
+                except Exception as e:
+                    response_message = -1
+            else:
+                response_message = -1
+
+            writer.write(f"{response_message}\n".encode())
+            await writer.drain()
+
     except Exception as e:
         print(f"Error: {e}")
     finally:

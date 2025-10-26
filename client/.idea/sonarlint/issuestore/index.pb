@@ -41,3 +41,5 @@ J
 dependency-reduced-pom.xml,8\a\8a88dfd5af6f2db5a5431581b56e901f5f143d92
 X
 (src/main/java/com/socket/client/App.java,7\b\7b1dd2fbeabee6b0ebf9b20fea8639b120253a1d
+e
+5src/main/resources/com/socket/client/chat-layout.fxml,e\1\e13dfed9814e79529c74f32d65f625d827cea31b

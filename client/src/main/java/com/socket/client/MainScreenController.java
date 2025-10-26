@@ -1,5 +1,6 @@
 package com.socket.client;
 
+import com.socket.client.chat.ChatController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,27 +35,25 @@ public class MainScreenController {
     @FXML
     private void handleJoinButtonClick(ActionEvent event) {
         String username = usernameField.getText();
-        String surname = surnameField.getText();
 
-        if (!username.isEmpty() && !surname.isEmpty()) {
+        if (!username.isEmpty()) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("chat-layout.fxml"));
                 Parent chatRoot = loader.load();
 
-                Stage chatStage = new Stage();
                 Scene scene = new Scene(chatRoot);
                 scene.getStylesheets().add(getClass().getResource("chat-style.css").toExternalForm());
 
                 SessionManager.user.setName(username);
-                SessionManager.user.setSurname(surname);
 
-                chatStage.setTitle("Chat Screen - " + username);
-                chatStage.setScene(scene);
-                chatStage.show();
+                Stage currentStage = ((Stage) joinButton.getScene().getWindow());
+                currentStage.setScene(scene);
 
-
-
-                ((Stage) joinButton.getScene().getWindow()).close();
+                currentStage.setOnCloseRequest((v) -> {
+                    System.out.println("Uygulama kapanıyor, soket kapatılıyor...");
+                    ChatController controller = loader.getController();
+                    controller.closeSocket();
+                });
 
             } catch (IOException e) {
                 e.printStackTrace();

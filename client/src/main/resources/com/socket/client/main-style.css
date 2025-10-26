@@ -1,0 +1,81 @@
+/* =================================================================== */
+/* TEMEL DARK THEME VE KÖK PENCERE                                      */
+/* =================================================================== */
+.root {
+    -fx-background-color: #2B2B2B;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* =================================================================== */
+/* AVATAR GÖRSELİ                                                      */
+/* =================================================================== */
+.user-avatar {
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-border-color: #666;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2); /* Hafif gölge */
+}
+
+
+.user-avatar:empty {
+   -fx-background-color: #555;
+}
+
+
+/* =================================================================== */
+/* BAŞLIK ETİKETİ                                                      */
+/* =================================================================== */
+.title-label {
+    -fx-font-size: 1.8em;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E0E0E0;
+    -fx-padding: 0 0 10 0;
+}
+
+/* =================================================================== */
+/* GİRİŞ ALANLARI (TextField)                                          */
+/* =================================================================== */
+.input-field {
+    -fx-max-width: 280px;
+    -fx-background-color: #3C3F41;
+    -fx-text-fill: #E0E0E0;
+    -fx-prompt-text-fill: #757575;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #555;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 12px;
+    -fx-font-size: 1.1em;
+}
+
+.input-field:focused {
+    -fx-border-color: #007BFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 123, 255, 0.3), 8, 0, 0, 0);
+}
+
+/* =================================================================== */
+/* KATIL BUTONU                                                        */
+/* =================================================================== */
+.join-button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 30px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 123, 255, 0.4), 10, 0, 0, 2);
+}
+
+.join-button:hover {
+    -fx-background-color: #0056b3;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 179, 0.6), 12, 0, 0, 3);
+}
+
+.join-button:pressed {
+    -fx-background-color: #004085;
+    -fx-effect: none;
+}

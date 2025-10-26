@@ -1,27 +1,38 @@
 
 w
-java:S3740Z"/Provide the parametrized type for this generic.(Ç¾Ğºıÿÿÿÿ8å×Ø†‰3J$f869ffe0-dac1-46e6-806b-776acf2eec1f
-w
-java:S3740["/Provide the parametrized type for this generic.(¯åËüÿÿÿÿ8å×Ø†‰3J$66d2398c-78cd-4cff-a32d-6103ca2be8c1
-w
-java:S3740}"/Provide the parametrized type for this generic.(¥ïíïøÿÿÿÿ8å×Ø†‰3J$8af5440b-747a-47b4-b6f0-8f3d40f7dd7b
+java:S3740"/Provide the parametrized type for this generic.(Ç¾Ğºıÿÿÿÿ8ÇĞä—¡3J$2732cd58-645b-468c-919a-d9edc638917a
 x
-java:S3740€"/Provide the parametrized type for this generic.(Êİ’µûÿÿÿÿ8å×Ø†‰3J$1675de3d-18b6-45a3-b6c2-5ce2836cabfc
+java:S3740€"/Provide the parametrized type for this generic.(¯åËüÿÿÿÿ8ÇĞä—¡3J$5dfc9172-053e-486f-81a5-2f545b25a112
+x
+java:S3740Ÿ"/Provide the parametrized type for this generic.(¥ïíïøÿÿÿÿ8ÇĞä—¡3J$d4061ac4-e50c-4b3c-b995-dedf22047258
+x
+java:S3740¢"/Provide the parametrized type for this generic.(Êİ’µûÿÿÿÿ8ÇĞä—¡3J$bdb66ef5-5596-4c32-a6da-549dc69c5093
 s
-java:S3740Š"/Provide the parametrized type for this generic.(ë†Ä½8å×Ø†‰3J$873cfcb3-18a2-4b3b-a0b0-6f57b3176eb3
+java:S3740¬"/Provide the parametrized type for this generic.(ë†Ä½8ÇĞä—¡3J$3e528055-a69d-4a42-ac97-3fe600bd3c16
 x
-java:S3740—"/Provide the parametrized type for this generic.(¢•üûÿÿÿÿ8Ş½Û†‰3J$16fe25a0-fc28-4f84-b600-f073e768a4f2
+java:S3740¹"/Provide the parametrized type for this generic.(¢•üûÿÿÿÿ8ÇĞä—¡3J$3fae64cb-cca4-4a4e-a4b5-d6ea8c4416d7
 
-java:S1301F"KReplace this "switch" statement by "if" statements to increase readability.(¬“„÷8æ×Ø†‰3J$a9027660-360d-4af5-baf4-55bd1d01f840
+java:S1301d"KReplace this "switch" statement by "if" statements to increase readability.(¬“„÷8ÉĞä—¡3J$b1a6ad6a-5765-491f-abce-78939650bfcd
+•
+java:S3776."RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(°€ÿÙ8ïĞä—¡3J$eb204f06-39b9-4865-ab34-66f3eded1f11
 
-java:S1874*"9Remove this use of "NioEventLoopGroup"; it is deprecated.(€Û ïüÿÿÿÿ8…ØØ†‰3J$69ece81f-be78-437f-858c-85cfd39cc36a
+java:S18742"9Remove this use of "NioEventLoopGroup"; it is deprecated.(€Û ïüÿÿÿÿ8ñĞä—¡3J$123e825c-a108-424d-8263-fb72eec58b4a
 |
-java:S1874+"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ÎŠë×8…ØØ†‰3J$c541d9fb-a574-4b0f-90eb-09f67383150c
-l	java:S106C"+Replace this use of System.out by a logger.(‚š‰18‰ØØ†‰3J$ed59b120-2b0f-4abb-ae37-f9a4ace23c38
-›	java:S131F"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„÷8ŠØØ†‰3J$34c9897a-2887-4fb4-9c2e-68f71688472e
-m	java:S106m"+Replace this use of System.out by a logger.(Ã¶Ü8ØØ†‰3J$92e0e9fd-d3cd-43c0-930c-089b19f1a657
-r	java:S106z"+Replace this use of System.out by a logger.(«Õ§Îûÿÿÿÿ8ØØ†‰3J$0bef786a-a43e-4294-bfcf-d5786e07b71b
-‹
-java:S1128"HRemove this unused import 'io.netty.handler.codec.string.StringEncoder'.(ÃªÛ…8•ÿÚ†‰3J$15052f16-daa0-4768-9b39-65720a543148
-‹
-java:S1128"HRemove this unused import 'org.bouncycastle.crypto.engines.CAST5Engine'.(»­÷¢8•ÿÚ†‰3J$481b29c9-0420-40e4-823c-d08068ff7685
+java:S18743"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ÎŠë×8ñĞä—¡3J$fa9830b3-d56d-4f98-892e-5da89f8e79bf
+™
+java:S2175X"VA "Map<Channel, Socket>" cannot contain a "ChannelHandlerContext" in a "Channel" type.(æøº­8÷Ğä—¡3J$8c520664-55a9-46fb-b34f-b21f43d5dcb7
+m	java:S106b"+Replace this use of System.out by a logger.(÷–¥8øĞä—¡3J$f40882d9-6eb9-418d-9aaf-49cab00d922d
+›	java:S131d"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„÷8ùĞä—¡3J$9e600aa1-96e7-4cca-8fea-5639d12a1a7d
+~
+java:S2696j"6Make the enclosing method "static" or remove this set.(èäö˜ıÿÿÿÿ8ûĞä—¡3J$13e54da5-4d50-489e-9676-a8f3c113402b
+y
+java:S2696k"6Make the enclosing method "static" or remove this set.(§×„½8ûĞä—¡3J$6c5d8caa-4b97-4a2d-9b0c-c3b754ff20d4
+n	java:S106"+Replace this use of System.out by a logger.(Ã¶Ü8ıĞä—¡3J$b5782b29-8cbc-4fbd-b659-b4ae5172b7aa
+r
+java:S20935"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8şĞä—¡3J$23bf0254-fef3-48ef-b6fe-0d14650d7a6e
+s	java:S106œ"+Replace this use of System.out by a logger.(«Õ§Îûÿÿÿÿ8ÿĞä—¡3J$07f32cdc-e9a2-46fc-ba96-5750914601ce
+n	java:S106±"+Replace this use of System.out by a logger.(°‡ı…8€Ñä—¡3J$0ae9784f-0d81-4f45-943e-9695472356d7
+w
+java:S1128"4Remove this unused import 'io.netty.buffer.ByteBuf'.(¬¶ç›8Ñä—¡3J$c16536b1-63c9-4ae8-bfef-6ab26a9b862b
+
+java:S1128">Remove this unused import 'java.nio.charset.StandardCharsets'.(ï˜ŞÛ8Ñä—¡3J$7758622b-404c-4b9c-818e-bede36452718

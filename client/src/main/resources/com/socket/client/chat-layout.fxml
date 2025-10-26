@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.Button?>
-
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import javafx.scene.text.Text?>
+
 <BorderPane fx:controller="com.socket.client.chat.ChatController"
             xmlns:fx="http://javafx.com/fxml"
-            prefHeight="600.0" prefWidth="800.0" styleClass="root">
-
-    <left>
-          <VBox spacing="8" VBox.vgrow="ALWAYS" styleClass="wrapper-users">
-              <Text styleClass="users-text" text="Users"/>
-              <ListView VBox.vgrow="ALWAYS" fx:id="userListView" styleClass="user-list-view"  />
-          </VBox>
-    </left>
+            prefHeight="600.0" prefWidth="800.0"
+            styleClass="root"
+            stylesheets="@chat-style.css"> <left>
+    <VBox styleClass="sidebar" spacing="10">
+        <padding>
+            <Insets top="16" right="16" bottom="16" left="16"/>
+        </padding>
+        <Text styleClass="users-text" text="Users"/>
+        <ListView VBox.vgrow="ALWAYS" fx:id="userListView" styleClass="user-list-view"/>
+    </VBox>
+</left>
 
     <center>
-        <VBox styleClass="wrapper-chat-screen" spacing="16">
+        <VBox styleClass="chat-area">
             <ListView fx:id="messageListView" VBox.vgrow="ALWAYS" styleClass="message-list-view"/>
-            <VBox styleClass="message-input-container" alignment="CENTER_LEFT" spacing="16">
-                <TextArea onKeyReleased="#handleEnterReleased"  styleClass="message-input-area" fx:id="messageInput" HBox.hgrow="ALWAYS" promptText="Write message..." style="-fx-wrap-text: true;"/>
-                <HBox spacing="16" alignment="CENTER_RIGHT">
-                    <Button styleClass="chat-button">
-                        <graphic>
-                            <FontIcon iconLiteral="anto-paper-clip"  fill="darkslategrey" iconSize="20"/>
-                        </graphic>
-                    </Button>
-                    <Button styleClass="chat-button" onAction="#sendMessage">
-                        <graphic>
-                            <FontIcon  iconLiteral="anto-send" iconSize="20" fill="darkslategrey"/>
-                        </graphic>
-                    </Button>
-                </HBox>
+
+            <VBox styleClass="input-area" spacing="10">
+                <padding>
+                    <Insets top="12" right="12" bottom="12" left="12"/>
+                </padding>
+                <TextArea onKeyReleased="#handleEnterReleased"
+                          styleClass="message-input-area"
+                          fx:id="messageInput"
+                          promptText="Write message..."
+                          wrapText="true"/> <HBox styleClass="input-button-bar" alignment="CENTER_RIGHT" spacing="10">
+                <Button styleClass="icon-button, send-button" onAction="#sendMessage">
+                    <graphic>
+                        <FontIcon iconLiteral="anto-send"/>
+                    </graphic>
+                </Button>
+            </HBox>
             </VBox>
         </VBox>
     </center>

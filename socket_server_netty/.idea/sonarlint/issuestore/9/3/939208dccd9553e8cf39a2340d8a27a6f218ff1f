@@ -1,14 +1,14 @@
 
+˜
+java:S1104"WMake agentWriter a static final constant or non-public and provide accessors if needed.(É”Á½üÿÿÿÿJ$da57db9d-7200-40a8-a23a-e193bf0c9018
+˜
+java:S1104"WMake agentReader a static final constant or non-public and provide accessors if needed.(•ì³ÁøÿÿÿÿJ$1e353cf9-2d7a-4b9c-9020-0b5c5cf617c7
 r
-java:S1104"WMake agentWriter a static final constant or non-public and provide accessors if needed.(É”Á½üÿÿÿÿ
+java:S1444"1Make this "public static agentWriter" field final(É”Á½üÿÿÿÿJ$6f072eda-0619-47e8-83b3-88b50bdc737e
 r
-java:S1104"WMake agentReader a static final constant or non-public and provide accessors if needed.(•ì³Áøÿÿÿÿ
-L
-java:S1444"1Make this "public static agentWriter" field final(É”Á½üÿÿÿÿ
-L
-java:S1444"1Make this "public static agentReader" field final(•ì³Áøÿÿÿÿ
-U
-java:S1118	":Add a private constructor to hide the implicit public one.(’•Ñ®üÿÿÿÿ
-@	java:S106"+Replace this use of System.out by a logger.(°Øš¤
-E	java:S106"+Replace this use of System.out by a logger.(·ê¯¨şÿÿÿÿ
-E	java:S106"+Replace this use of System.err by a logger.(‹Øïùÿÿÿÿ
+java:S1444"1Make this "public static agentReader" field final(•ì³ÁøÿÿÿÿJ$7fcdca93-42de-44f9-b2a6-c64dd188a449
+{
+java:S1118	":Add a private constructor to hide the implicit public one.(’•Ñ®üÿÿÿÿJ$5c88cba6-4481-415e-9934-ddd7debb4d17
+f	java:S106"+Replace this use of System.out by a logger.(°Øš¤J$5dc47f33-641f-4373-9b99-e9f767c811f6
+k	java:S106"+Replace this use of System.out by a logger.(·ê¯¨şÿÿÿÿJ$c94ecbe2-09e1-4469-b86e-273f883bb618
+k	java:S106"+Replace this use of System.err by a logger.(‹ØïùÿÿÿÿJ$12850714-aaa8-4850-9397-3835a153b7f2

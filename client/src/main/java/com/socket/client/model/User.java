@@ -5,15 +5,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    public enum MessageType{
+        TEXT,
+        PROMPT
+    }
+
+
     private static final long serialVersionUID = 1L;
     private String name;
-    private String surname;
+    private MessageType messageType;
     private String message;
     private String id;
 
     @JsonIgnore
     private String getFullName(){
-        return String.format("%s %s", this.name, this.surname);
+        return String.format("%s %s", this.name);
     }
 
     public String getMessage() {
@@ -24,16 +30,9 @@ public class User implements Serializable {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public void setMessage(String message) {
@@ -48,11 +47,18 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    public MessageType getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
                 ", message='" + message + '\'' +
                 ", id='" + id + '\'' +
                 '}';

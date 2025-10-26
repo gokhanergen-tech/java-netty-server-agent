@@ -4,20 +4,27 @@ package org.server;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
-import org.bouncycastle.crypto.engines.CAST5Engine;
 import org.server.mappers.Mapper;
 import org.server.mappers.UserMapper;
 import org.server.model.Message;
 import org.server.model.User;
 import org.server.model.UserJoinedMessage;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -31,6 +38,7 @@ public class NettyServerManager {
     private static final int PORT = 8131;
 
     private final List<Channel> clients = new CopyOnWriteArrayList<>();
+    private static final Map<Channel, Socket> userToAgentMap = new HashMap<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final Map<String, List<UserJoinedMessage>> listMap = new HashMap<>();
     private final ConcurrentMap<Channel, UserJoinedMessage> userMap = new ConcurrentHashMap<>();
@@ -52,37 +60,66 @@ public class NettyServerManager {
                         protected void initChannel(SocketChannel ch) {
                             clients.add(ch);
 
+                            try {
+                                Socket agentSocket = new Socket("127.0.0.1", 9100);
+                                userToAgentMap.put(ch, agentSocket);
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(5 * 1024 * 1024,
+                                    Unpooled.copiedBuffer("\n", CharsetUtil.UTF_8)));
+
+// Gelen stringleri decode et
                             ch.pipeline().addLast(new StringDecoder(CharsetUtil.UTF_8));
+
+// Giden mesajlar için encoder
+                            ch.pipeline().addLast(new StringEncoder(CharsetUtil.UTF_8));
                             ch.pipeline().addLast(new SimpleChannelInboundHandler<String>() {
 
                                 @Override
                                 public void channelInactive(ChannelHandlerContext ctx) throws Exception {
                                     clients.remove(ctx.channel());
                                     disconnectUser(ch);
+                                    Socket agentSocket = userToAgentMap.get(ch);
+                                    if (agentSocket != null) {
+                                        try {
+                                            agentSocket.close();
+                                            userToAgentMap.remove(ctx);
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
                                     super.channelInactive(ctx);
                                 }
 
                                 @Override
                                 protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-                                    System.out.println(msg);
+                                    System.out.println("Got message");
                                     Message<?> message = objectMapper.readValue(msg, Message.class);
-
                                     switch (message.getTopic()) {
                                         case ON_MESSAGE:
                                             User user = Mapper.objectMapper.convertValue(message.getMessageObject(),User.class);
+                                            Socket agentSocket = userToAgentMap.get(ch);
 
-                                            agentWriter.println(UserMapper.userToJSON(user));
+                                            if(agentSocket!=null){
+                                                agentWriter = new PrintWriter(agentSocket.getOutputStream(), true);
+                                                agentReader = new BufferedReader(new InputStreamReader(agentSocket.getInputStream()));
 
-                                            String response = agentReader.readLine();
+                                                agentWriter.println(UserMapper.userToJSON(user));
 
-                                            user.setMessage(String.format("%s: %s", user.getName(), response));
-                                            sendAllMessage(new Message<>(Message.MessageTopic.ON_MESSAGE,user));
+                                                String response = agentReader.readLine();
+
+                                                if(user.getMessageType()== User.MessageType.PROMPT)
+                                                    user.setMessage(response);
+                                                else
+                                                    user.setMessage(String.format("%s: %s", user.getName(), response));
+
+                                                sendAllMessage(new Message<>(Message.MessageTopic.ON_MESSAGE,user));
+                                            }
                                             break;
-
                                         case ON_JOIN:
                                             UserJoinedMessage joined = Mapper.objectMapper.convertValue(message.getMessageObject(), UserJoinedMessage.class);
-
-
 
                                             listMap.get("1").add(joined);
                                             userMap.put(ch,joined);
@@ -90,10 +127,7 @@ public class NettyServerManager {
                                             sendMessageAClient(new Message(Message.MessageTopic.ON_JOIN_SELF,listMap.get("1")), ch);
                                             sendMessageToAllClientExceptAClient(new Message(Message.MessageTopic.ON_JOIN,joined), ch);
                                             break;
-
                                     }
-
-
                                 }
 
                                 @Override
@@ -138,10 +172,10 @@ public class NettyServerManager {
     private void sendMessageAClient(Message message, Channel client) {
         try {
             String json = Mapper.objectMapper.writeValueAsString(message);
-            ByteBuf buf = io.netty.buffer.Unpooled.copiedBuffer(json, CharsetUtil.UTF_8);
 
             if (client.isActive()) {
-                client.writeAndFlush(buf.retainedDuplicate());
+                System.out.println(message.getTopic());
+                client.writeAndFlush(json+"\n");
             }
         } catch (Exception e) {
             e.printStackTrace();

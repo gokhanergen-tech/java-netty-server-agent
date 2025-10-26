@@ -6,6 +6,8 @@ toxic_classifier = pipeline("text-classification", model="unitary/toxic-bert")
 def analyse_users(message):
     result = toxic_classifier(message)[0]
     
+    print(result["score"])
+    
     if result["score"] > 0.2:
         peaceful_messages = [
             "Let's treat each other with respect.",
@@ -15,7 +17,7 @@ def analyse_users(message):
         ]
         return random.choice(peaceful_messages)
     else:
-        return "-1"
+        return message
 
 # Örnek kullanım
 if __name__ == "__main__":

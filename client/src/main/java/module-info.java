@@ -1,6 +1,7 @@
 module com.socket.client {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.swing;
 
     requires org.controlsfx.controls;
     requires com.fasterxml.jackson.databind;
@@ -10,6 +11,8 @@ module com.socket.client {
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.antdesignicons;
+
+    requires java.desktop;  // <-- BufferedImage & ImageIO için gerekli
 
     opens com.socket.client to javafx.fxml;
     exports com.socket.client;
@@ -21,4 +24,5 @@ module com.socket.client {
     requires io.netty.transport;
     requires io.netty.codec;
     requires io.netty.common;
+    requires io.netty.buffer;
 }

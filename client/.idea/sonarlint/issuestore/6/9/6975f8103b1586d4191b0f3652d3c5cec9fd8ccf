@@ -1,26 +1,34 @@
 
-g	java:S112n"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ëáà†‰3
-L
-java:S3740J"/Provide the parametrized type for this generic.(ó»ãş8ìáà†‰3
-L
-java:S3740x"/Provide the parametrized type for this generic.(ô€ƒ©8ìáà†‰3
-R
-java:S3740¤"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8ìáà†‰3
-t
-java:S37768"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(·òşÿÿÿÿ8‡âà†‰3
-[
-java:S18749"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ä‚Õ ıÿÿÿÿ8‰âà†‰3
-|
-java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8‰âà†‰3
-L	java:S106H"+Replace this use of System.out by a logger.(†íÿ’ûÿÿÿÿ8âà†‰3
-L	java:S106c"+Replace this use of System.out by a logger.(ÿ†Ÿ·şÿÿÿÿ8‘âà†‰3
-X
-java:S2696t"6Make the enclosing method "static" or remove this set.(Ïïş¿úÿÿÿÿ8“âà†‰3
-M	java:S106‹"+Replace this use of System.out by a logger.(²Òçÿüÿÿÿÿ8•âà†‰3
-^	java:S125™"<This block of commented-out lines of code should be removed.(Ò™Áàúÿÿÿÿ8–âà†‰3
-H	java:S106¥"+Replace this use of System.out by a logger.(¸ô¤«8—âà†‰3
-M	java:S106¦"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8—âà†‰3
-^
-java:S1128"ARemove this unused import 'com.socket.client.client.ClientAsync'.(©Şûù8™âà†‰3
-a
-java:S1128"DRemove this unused import 'com.socket.client.client.MessageHandler'.(°‘«¸8™âà†‰3
+	java:S112¨"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†²í˜¡3J$6b5a77cb-ae56-45cf-bb7c-bc19fb7bc849
+	java:S112ô"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†²í˜¡3J$f856c50d-1714-405e-91bd-a3a0ec740cd5
+r
+java:S3740X"/Provide the parametrized type for this generic.(ó»ãş8‡²í˜¡3J$96780951-e300-4a72-b0bd-d66ae1e2c353
+s
+java:S3740²"/Provide the parametrized type for this generic.(ô€ƒ©8‡²í˜¡3J$8957b511-b76a-4f09-a67b-98ba84bdc60f
+x
+java:S3740„"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8‡²í˜¡3J$7f46e2f8-9b46-4e3e-bcfd-5489d54ba3b0
+š
+java:S3776C"RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(·òşÿÿÿÿ8£²í˜¡3J$e57f433b-9a77-402c-9b52-85dc387fe5f8
+
+java:S1874E"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ä‚Õ ıÿÿÿÿ8¥²í˜¡3J$a15229bc-ed15-4a89-8c35-12a1915231eb
+¢
+java:S2142Í"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8¦²í˜¡3J$5d61a347-b53e-4796-b104-74f366f2ce11
+r	java:S106x"+Replace this use of System.out by a logger.(’Éê˜üÿÿÿÿ8Ã™¡3J$47d3c986-f2fb-4480-b3cb-81d04221858f
+s	java:S106"+Replace this use of System.out by a logger.(ÿ†Ÿ·şÿÿÿÿ8—¼™¡3J$e0e3cca5-6db6-49fe-857e-571b4d9d6bdd
+
+java:S2696®"6Make the enclosing method "static" or remove this set.(Ïïş¿úÿÿÿÿ8²²í˜¡3J$200a6ae4-3533-420a-a113-25155146269d
+p
+java:S1602À",Remove useless curly braces around statement(ÃÉş©8³²í˜¡3J$291dd138-f7b3-4cc3-b3c0-49f4da900014
+–
+java:S1612À"RReplace this lambda with method reference 'ChatController.this::closedConnection'.(ÃÉş©8´²í˜¡3J$724aa4ca-0ef0-428c-abc0-2ce2f8cac888
+u
+java:S1602É",Remove useless curly braces around statement( íä¬ûÿÿÿÿ8´²í˜¡3J$9d3a57f8-9a60-44d6-a14a-597511a86f67
+n	java:S106Î"+Replace this use of System.out by a logger.(®¹µ¨8ÔÙŸ™¡3J$125011fd-bb7f-4d22-841c-c2fc67e28da2
+„	java:S125×"<This block of commented-out lines of code should be removed.(Ò™Áàúÿÿÿÿ8¶²í˜¡3J$f498e490-41f8-4530-81cb-988346837b0b
+s	java:S106Û"+Replace this use of System.out by a logger.(Äê×ƒÿÿÿÿÿ8²·µ™¡3J$968c763e-abc7-474d-adcb-bfe1e763ec1f
+¢
+java:S2142á"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8öÌ¿™¡3J$c2ecb94e-007a-408c-ae56-71298c32af5c
+n	java:S106…"+Replace this use of System.out by a logger.(¸ô¤«8Ğ±¶™¡3J$c56e02e2-1bcf-48b8-9875-ceb27742cfd4
+s	java:S106†"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8şÌ¿™¡3J$80f09959-267b-47f0-86b6-cd0dc715ca8c
+w
+java:S1128"4Remove this unused import 'io.netty.buffer.ByteBuf'.(¬¶ç›8â¬™¡3J$bb455890-bb93-4c3a-8c4a-58d52accc1e8
