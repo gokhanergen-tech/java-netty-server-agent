@@ -8,7 +8,7 @@ def analyse_users(message):
     
     print(result["score"])
     
-    if result["score"] > 0.2:
+    if result["score"] > 0.4:
         peaceful_messages = [
             "Let's treat each other with respect.",
             "We're all human — let's be kind.",
@@ -18,16 +18,3 @@ def analyse_users(message):
         return random.choice(peaceful_messages)
     else:
         return message
-
-# Örnek kullanım
-if __name__ == "__main__":
-    messages = [
-        "You are so dumb!",
-        "I love this weather.",
-        "Go get drunk!",
-        "Have a nice day!"
-    ]
-
-    for msg in messages:
-        print(f"Message: {msg}")
-        print(f"Response: {analyse_users(msg)}\n")

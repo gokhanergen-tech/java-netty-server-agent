@@ -1,34 +1,45 @@
 
-	java:S112¨"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†²í˜¡3J$6b5a77cb-ae56-45cf-bb7c-bc19fb7bc849
-	java:S112ô"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†²í˜¡3J$f856c50d-1714-405e-91bd-a3a0ec740cd5
+	java:S112»"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¼½Îµ¢3J$f9f55165-34eb-45df-83fb-8c752430b99a
+	java:S112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8½½Îµ¢3J$da059a31-6e78-4506-891a-75e0bf45ae0b
 r
-java:S3740X"/Provide the parametrized type for this generic.(ó»ãş8‡²í˜¡3J$96780951-e300-4a72-b0bd-d66ae1e2c353
+java:S3740^"/Provide the parametrized type for this generic.(ó»ãş8½½Îµ¢3J$748e7d81-3165-4240-ad31-2ab3bf0ca4f3
 s
-java:S3740²"/Provide the parametrized type for this generic.(ô€ƒ©8‡²í˜¡3J$8957b511-b76a-4f09-a67b-98ba84bdc60f
+java:S3740Å"/Provide the parametrized type for this generic.(ô€ƒ©8¾½Îµ¢3J$2ce15963-582a-48ed-9f2d-40e90252c050
 x
-java:S3740„"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8‡²í˜¡3J$7f46e2f8-9b46-4e3e-bcfd-5489d54ba3b0
+java:S3740•"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8¾½Îµ¢3J$586f81fe-3b36-47fd-b4c0-9a012a082e88
+x
+java:S3740ª"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8¾½Îµ¢3J$240e3896-56be-489a-b7a4-abb42bce61a8
+x
+java:S3740Á"/Provide the parametrized type for this generic.(´á…şÿÿÿÿÿ8¾½Îµ¢3J$911e0cb3-20b6-44df-a4c5-b105b967e755
 š
-java:S3776C"RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(·òşÿÿÿÿ8£²í˜¡3J$e57f433b-9a77-402c-9b52-85dc387fe5f8
+java:S3776G"RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(·òşÿÿÿÿ8à½Îµ¢3J$7e15bb4d-8198-41db-8621-7625749c02d2
 
-java:S1874E"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ä‚Õ ıÿÿÿÿ8¥²í˜¡3J$a15229bc-ed15-4a89-8c35-12a1915231eb
+java:S1874K"9Remove this use of "NioEventLoopGroup"; it is deprecated.(ä‚Õ ıÿÿÿÿ8â½Îµ¢3J$946649f5-bab7-4026-b19a-ccd667255019
 ¢
-java:S2142Í"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8¦²í˜¡3J$5d61a347-b53e-4796-b104-74f366f2ce11
-r	java:S106x"+Replace this use of System.out by a logger.(’Éê˜üÿÿÿÿ8Ã™¡3J$47d3c986-f2fb-4480-b3cb-81d04221858f
-s	java:S106"+Replace this use of System.out by a logger.(ÿ†Ÿ·şÿÿÿÿ8—¼™¡3J$e0e3cca5-6db6-49fe-857e-571b4d9d6bdd
+java:S2142à"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8ã½Îµ¢3J$3e33ca51-f486-4d28-8a52-9d69bc05c95f
+r	java:S106"+Replace this use of System.out by a logger.(’Éê˜üÿÿÿÿ8î½Îµ¢3J$8db62f6f-86fa-41ab-8d7f-c036cf80b9c4
+`
+java:S1116™"Remove this empty statement.(ğßİŞ8ñ½Îµ¢3J$fe50d89f-6b74-4fc9-9add-913ed3c113b3
+s	java:S106°"+Replace this use of System.out by a logger.(ÿ†Ÿ·şÿÿÿÿ8ò½Îµ¢3J$25a18e41-b792-4443-bf82-dc4b0f66c18d
 
-java:S2696®"6Make the enclosing method "static" or remove this set.(Ïïş¿úÿÿÿÿ8²²í˜¡3J$200a6ae4-3533-420a-a113-25155146269d
+java:S2696Á"6Make the enclosing method "static" or remove this set.(Ïïş¿úÿÿÿÿ8õ½Îµ¢3J$d06edcd1-04cf-41b6-bb0b-f24fcbf4437b
 p
-java:S1602À",Remove useless curly braces around statement(ÃÉş©8³²í˜¡3J$291dd138-f7b3-4cc3-b3c0-49f4da900014
+java:S1602Ó",Remove useless curly braces around statement(ÃÉş©8÷½Îµ¢3J$16cb01fa-3475-4830-aa81-dc6bbe12a8ff
 –
-java:S1612À"RReplace this lambda with method reference 'ChatController.this::closedConnection'.(ÃÉş©8´²í˜¡3J$724aa4ca-0ef0-428c-abc0-2ce2f8cac888
+java:S1612Ó"RReplace this lambda with method reference 'ChatController.this::closedConnection'.(ÃÉş©8÷½Îµ¢3J$28aa7189-ca28-47ab-85f0-ba771d78b0a1
 u
-java:S1602É",Remove useless curly braces around statement( íä¬ûÿÿÿÿ8´²í˜¡3J$9d3a57f8-9a60-44d6-a14a-597511a86f67
-n	java:S106Î"+Replace this use of System.out by a logger.(®¹µ¨8ÔÙŸ™¡3J$125011fd-bb7f-4d22-841c-c2fc67e28da2
-„	java:S125×"<This block of commented-out lines of code should be removed.(Ò™Áàúÿÿÿÿ8¶²í˜¡3J$f498e490-41f8-4530-81cb-988346837b0b
-s	java:S106Û"+Replace this use of System.out by a logger.(Äê×ƒÿÿÿÿÿ8²·µ™¡3J$968c763e-abc7-474d-adcb-bfe1e763ec1f
+java:S1602Ü",Remove useless curly braces around statement( íä¬ûÿÿÿÿ8ø½Îµ¢3J$cf74b58c-4b88-48ab-8ccc-ed2d1e21a92f
+n	java:S106á"+Replace this use of System.out by a logger.(®¹µ¨8ø½Îµ¢3J$8d539736-874b-4326-a334-640780ece759
+s	java:S106ê"+Replace this use of System.out by a logger.(Äê×ƒÿÿÿÿÿ8ù½Îµ¢3J$9dfb5016-f51c-4c5f-b488-a616882ef757
 ¢
-java:S2142á"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8öÌ¿™¡3J$c2ecb94e-007a-408c-ae56-71298c32af5c
-n	java:S106…"+Replace this use of System.out by a logger.(¸ô¤«8Ğ±¶™¡3J$c56e02e2-1bcf-48b8-9875-ceb27742cfd4
-s	java:S106†"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8şÌ¿™¡3J$80f09959-267b-47f0-86b6-cd0dc715ca8c
-w
-java:S1128"4Remove this unused import 'io.netty.buffer.ByteBuf'.(¬¶ç›8â¬™¡3J$bb455890-bb93-4c3a-8c4a-58d52accc1e8
+java:S2142ğ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ù½Îµ¢3J$6180321d-e4ce-4a96-9d74-13269b4a1b0a
+ˆ
+java:S3358‘"DExtract this nested ternary operation into an independent statement.(ÉíŸŞ8ƒ¾Îµ¢3J$3cd0483e-aa4f-4742-9342-1981a7c83e9d
+n	java:S106–"+Replace this use of System.out by a logger.(¸ô¤«8„¾Îµ¢3J$a89b643f-eb64-49d9-a249-6dd2cf10a61d
+s	java:S106—"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8„¾Îµ¢3J$6ac961bf-929b-4536-b7a9-e030f2d2bb20
+Q
+java:S1128"4Remove this unused import 'io.netty.buffer.ByteBuf'.(¬¶ç›8ë·½¶¢3
+K
+java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8ë·½¶¢3
+R
+java:S1128%"5Remove this unused import 'javafx.scene.layout.HBox'.(äê…8ë·½¶¢3

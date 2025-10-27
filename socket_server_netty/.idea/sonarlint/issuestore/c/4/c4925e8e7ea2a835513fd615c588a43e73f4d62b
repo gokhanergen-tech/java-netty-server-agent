@@ -1,31 +1,33 @@
 
-	java:S112q"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ñåºƒ¡3J$1f31d726-fa57-41b7-9fa2-a1b981fa910b
+	java:S112k"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ñåºƒ¡3J$a6d34345-5942-4fda-a301-15074cf3c7bf
 r
-java:S3740T"/Provide the parametrized type for this generic.(åô¼İ8Óåºƒ¡3J$01e0c3e7-737b-49b3-af43-85dde80acc37
+java:S3740R"/Provide the parametrized type for this generic.(åô¼İ8Óåºƒ¡3J$d72f0c95-ab7f-4d29-8402-0464747c0c5f
 }
-java:S1141N"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8Öåºƒ¡3J$fce229e5-dcd5-4e9b-aea0-fd5d3fb29331
+java:S1141L"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8Öåºƒ¡3J$4980ea96-3c5e-4a09-8ac3-18c487f6a38b
 
-java:S1301U"KReplace this "switch" statement by "if" statements to increase readability.(¬“„÷8×åºƒ¡3J$04c24011-b4ef-476c-a942-e15bb05ef976
+java:S1301S"KReplace this "switch" statement by "if" statements to increase readability.(¬“„÷8×åºƒ¡3J$514d513c-5889-4d2c-b205-05c298a185bb
 š
-java:S1450"WRemove the "messages" field and declare it as a local variable in the relevant methods.(•ˆ¿8çåºƒ¡3J$1f655d06-bc2f-4140-b0d9-0e8111827ec0
+java:S1450"WRemove the "messages" field and declare it as a local variable in the relevant methods.(•ˆ¿8çåºƒ¡3J$97f6f83f-dc16-4ffd-9507-74eef6315416
 ”
-java:S3776F"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ú¡­,8ıåºƒ¡3J$26167726-69de-42cb-ab37-3959e2608073
+java:S3776D"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ú¡­,8ıåºƒ¡3J$b3ce9ef6-95a3-4650-99f6-4f955f35ac78
 ¡
-java:S2142p"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8‚æºƒ¡3J$0e8ea45e-ae14-48d7-b966-44be05fa67ac
-m	java:S106Q"+Replace this use of System.out by a logger.(åù¨8‡æºƒ¡3J$705e1bb0-bd0a-4921-8733-b4805c132454
+java:S2142j"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8‚æºƒ¡3J$ea6fdbe6-b7bb-41d6-a2cb-fd14f3edadaf
+m	java:S106O"+Replace this use of System.out by a logger.(åù¨8‡æºƒ¡3J$79708bc0-5429-4e63-910a-c9da37ca4d4e
 
-java:S1611R"9Remove the parentheses around the "asyncClient" parameter(ì«‚ÿÿÿÿÿ8Šæºƒ¡3J$96b26c7f-4ddf-4a1a-b1fb-526f923a2faa
+java:S1611P"9Remove the parentheses around the "asyncClient" parameter(ì«‚ÿÿÿÿÿ8Šæºƒ¡3J$d17eb38e-3d4c-4759-91d2-bb170e209632
 t
-java:S1602R",Remove useless curly braces around statement(ì«‚ÿÿÿÿÿ8‘æºƒ¡3J$3bd7e612-ba88-4fda-bd93-25767c7ad0da
+java:S1602P",Remove useless curly braces around statement(ì«‚ÿÿÿÿÿ8‘æºƒ¡3J$7653b287-d0a8-4c96-948a-419fd87d6fb7
 „
-java:S1612R"<Replace this lambda with method reference 'clients::remove'.(ì«‚ÿÿÿÿÿ8”æºƒ¡3J$4e2bb602-199a-46da-a390-8626311787bd
-›	java:S131U"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„÷8—æºƒ¡3J$26c7b494-94bc-4bd8-9ca5-f3e2d5661327
+java:S1612P"<Replace this lambda with method reference 'clients::remove'.(ì«‚ÿÿÿÿÿ8”æºƒ¡3J$79fef6b6-9f84-4926-a3f5-4f83de4b18f0
+›	java:S131S"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„÷8—æºƒ¡3J$cc830edc-bd95-4718-9c7e-919770c06aff
 y
-java:S1481a"6Remove this unused "userJoinedMessage" local variable.(²’È“8æºƒ¡3J$2321535a-a65b-4353-a333-7ac5b21506b1
+java:S1481["6Remove this unused "userJoinedMessage" local variable.(²’È“8æºƒ¡3J$ad3485ec-7d97-41c1-a2e0-d98e4fb2fe87
 z
-java:S1135l"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¡æºƒ¡3J$7b15579c-2678-4216-bbfe-44d07f350bab
-¢
-java:S2142€"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8°æºƒ¡3J$df10421b-7f95-4f82-8b82-5b1e8057b1d5
-r	java:S106}"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8²æºƒ¡3J$412ab12d-5223-48ec-9c57-c64b79aaeb80
-„
-java:S1128"<Remove this unused import 'org.server.agents.AnalyserAgent'.(×ñˆ±ùÿÿÿÿ8»æºƒ¡3J$084f1edb-c283-4ff4-bfdc-fb3abe8ae4f2
+java:S1135f"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¡æºƒ¡3J$904e15a3-f664-40ea-9df6-7c7999dc59ae
+¡
+java:S2142z"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8°æºƒ¡3J$ebeae418-202a-4175-b560-fcdd91d1b52e
+r	java:S106w"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8²æºƒ¡3J$372333fa-a3b4-43a9-8298-437fde5de2f5
+^
+java:S1128"<Remove this unused import 'org.server.agents.AnalyserAgent'.(×ñˆ±ùÿÿÿÿ8õî¬¬¢3
+\
+java:S1128":Remove this unused import 'org.server.mappers.UserMapper'.(Ø®¹ıÿÿÿÿ8õî¬¬¢3

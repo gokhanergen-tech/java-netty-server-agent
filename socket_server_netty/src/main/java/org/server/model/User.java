@@ -6,7 +6,8 @@ import java.util.UUID;
 public class User implements Serializable {
     public enum MessageType{
         TEXT,
-        PROMPT
+        PROMPT,
+        LAMA
     }
 
     private static final long serialVersionUID = 1L;

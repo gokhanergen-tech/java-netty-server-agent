@@ -20,7 +20,7 @@
                fitWidth="100.0"
                pickOnBounds="true"
                preserveRatio="true"
-               styleClass="user-avatar"/> <Label text="Kullanıcı Bilgileri" styleClass="title-label"/>
-    <TextField fx:id="usernameField" promptText="Kullanıcı Adı" styleClass="input-field"/>
+               styleClass="user-avatar"/> <Label text="User Info" styleClass="title-label"/>
+    <TextField fx:id="usernameField" promptText="Username" styleClass="input-field"/>
     <Button fx:id="joinButton" text="Join" onAction="#handleJoinButtonClick" styleClass="join-button"/>
 </VBox>

@@ -1,0 +1,26 @@
+
+	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8™€®Ά3J$2877f60b-9f61-4454-a1c3-c8f65d578991
+r
+java:S37402"/Provide the parametrized type for this generic.(σ»γώ8€®Ά3J$1244180e-c6a7-42cd-88fb-fa5863f3883a
+r
+java:S3740F"/Provide the parametrized type for this generic.(τ€ƒ©8€®Ά3J$9655f8c1-15f6-4096-9d7c-d713e5235e1a
+w
+java:S3740h"/Provide the parametrized type for this generic.(±όÿÿÿÿ8€®Ά3J$5599645f-b55e-4567-a089-b69bce54683e
+
+java:S13013"KReplace this "switch" statement by "if" statements to increase readability.(¬“„χ8€®Ά3J$955b8d56-1013-43db-ab22-f7a5ecd12fd6
+΅	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(λµ”ξÿÿÿÿÿ8ν­ΉΆ3J$7c7c4296-2409-4a0a-bd1e-e1968a0611fc
+‚
+java:S1118":Add a private constructor to hide the implicit public one.(’•Ρ®όÿÿÿÿ8¨€®Ά3J$cdf60683-974f-487c-be97-6a61c658f910
+΅
+java:S2142_"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ύΎ8«€®Ά3J$e2b81994-2374-47eb-ae37-521d93e71576
+{
+java:S18545"8Remove this useless assignment to local variable "user".(ίΪζ8®€®Ά3J$4145bfce-0cf5-4a29-8b37-ae7dc839725e
+›	java:S1313"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„χ8―€®Ά3J$ece1a08b-c396-4b26-8868-d0b9f58d3be7
+{
+java:S11175"8Rename "user" which hides the field declared at line 28.(ίΪζ8°€®Ά3J$5d3ed09b-2d8f-47ef-bf56-7d1575140ba2
+l
+java:S14815")Remove this unused "user" local variable.(ίΪζ8±€®Ά3J$ecce9167-6365-471e-a176-8329fd003157
+r	java:S106I"+Replace this use of System.out by a logger.(ΎΊ¦”ÿÿÿÿÿ8³€®Ά3J$7fbd4865-942f-483b-84b2-5d57224e0a8c
+m	java:S106]"+Replace this use of System.out by a logger.(Υ—8µ€®Ά3J$f7b5c4b9-35cc-4afd-adc3-e4cf3fe78740
+m	java:S106`"+Replace this use of System.out by a logger.(®Ήµ¨8µ€®Ά3J$475be17d-6f05-4be7-a7a8-e1c527d5795d
+m	java:S106l"+Replace this use of System.out by a logger.(®Ήµ¨8α£®Ά3J$4f91de19-6278-410d-93a4-ff7927b04568

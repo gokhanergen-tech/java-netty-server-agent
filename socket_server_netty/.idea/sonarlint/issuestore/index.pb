@@ -27,3 +27,13 @@ X
 (src/main/java/org/server/model/User.java,4\2\42f3b574fe526517f7fe5521d296e700909744cc
 [
 +src/main/java/org/server/model/Message.java,d\4\d472d7626070648b053c261661b7004e535118a9
+b
+2src/main/java/org/server/agent/AgentWebClient.java,5\a\5a599fba51027088a354c08a165032103ad8a514
+W
+'src/main/java/org/server/AppConfig.java,8\d\8da2d09503cdb17e3c8bf8ff28bc96788948c615
+g
+7src/main/java/org/server/lamaClientr/AnalyserAgent.java,1\6\166b400f340f34ff9854a2eeeb5a20b72ef55def
+f
+6src/main/java/org/server/lamaClient/AnalyserAgent.java,9\7\9775efe21bd4a7c510a51a7dea65ce3118063757
+c
+3src/main/java/org/server/lamaClient/LLamaAgent.java,e\7\e727a877d72c0aaebf0f5a4e0a63f5b3b54363e5

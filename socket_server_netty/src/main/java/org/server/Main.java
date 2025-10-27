@@ -1,12 +1,14 @@
 package org.server;
 
-
-import org.server.agents.AnalyserAgent;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
+
     public static void main(String[] args) {
         //ServerManager serverSocketManager = new ServerManager();
-        NettyServerManager nettyServerManager = new NettyServerManager();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        NettyServerManager nettyServerManager = context.getBean(NettyServerManager.class);
 
         try {
             nettyServerManager.start();

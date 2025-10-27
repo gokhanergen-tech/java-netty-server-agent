@@ -1,7 +1,7 @@
 from diffusers import StableDiffusionPipeline
+from fastapi.responses import StreamingResponse
 import torch
 from io import BytesIO
-import base64
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 pipe = StableDiffusionPipeline.from_pretrained(
@@ -18,7 +18,8 @@ def generate_image(prompt):
     
     buffered = BytesIO()
     image.save(buffered, format="PNG")
-    return base64.b64encode(buffered.getvalue()).decode("utf-8")
+    buffered.seek(0)
+    return StreamingResponse(buffered, media_type="image/png")
     
     
     

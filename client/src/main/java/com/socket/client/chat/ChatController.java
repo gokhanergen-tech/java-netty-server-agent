@@ -22,6 +22,7 @@ import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,6 +35,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -51,7 +53,10 @@ public class ChatController {
     public ListView<String> userListView;
 
     @FXML
-    public ListView<Node> messageListView;
+    public VBox messagesBox;
+
+    @FXML
+    public ScrollPane scrollBar;
 
     @FXML
     public TextArea messageInput;
@@ -62,9 +67,10 @@ public class ChatController {
 
 
     private ObservableList<String> users = FXCollections.observableArrayList();
-    private ObservableList<Node> messages = FXCollections.observableArrayList();
 
     public void initialize() {
+
+        scrollBar.vvalueProperty().bind(messagesBox.heightProperty());
 
         EventLoopGroup group = new NioEventLoopGroup();
 
@@ -91,6 +97,7 @@ public class ChatController {
                                                 case ON_MESSAGE:
                                                     User user = Mapper.objectMapper.convertValue(message.getMessageObject(),User.class);
 
+                                                    VBox container = new VBox(10);
                                                     if(user.getMessageType()== User.MessageType.PROMPT){
                                                         String base64Image = user.getMessage();
                                                         if(base64Image.contains(":")) {
@@ -101,10 +108,10 @@ public class ChatController {
                                                         InputStream is = new ByteArrayInputStream(imageBytes);
                                                         Image image = new Image(is);
                                                         ImageView imageView = new ImageView(image);
-                                                        imageView.setFitWidth(200);
                                                         imageView.setPreserveRatio(true);
+                                                        imageView.getStyleClass().add("image-view");
 
-// Download butonu
+
                                                         Button downloadBtn = new Button("Download");
                                                         downloadBtn.setOnAction(event -> {
                                                             FileChooser fileChooser = new FileChooser();
@@ -124,18 +131,30 @@ public class ChatController {
                                                             }
                                                         });
 
-// HBox ile yan yana koy
-                                                        HBox container = new HBox(10); // 10 px boşluk
-                                                        container.getChildren().addAll(imageView, downloadBtn);
 
-// Mesaj listesine ekle
-                                                        messages.add(container);
+                                                        imageView.setFitHeight(200);
+
+                                                        Label userName = new Label("Image Generator: ");
+                                                        userName.setStyle("-fx-text-fill: #A0C4FF;");
+                                                        container.getStyleClass().add("text-message-wrapper");
+                                                        container.getChildren().addAll(userName,imageView, downloadBtn);
+                                                        container.getStyleClass().add("wrapper");
+
                                                     }else{
-                                                        Label textLabel = new Label(user.getMessage());
-                                                        messages.add(textLabel);
-                                                    }
+                                                        Label userName = new Label(user.getName()+": ");
+                                                        userName.setStyle("-fx-text-fill: #A0C4FF;");
 
-                                                    messageListView.scrollTo(messageListView.getItems().size() - 1);
+                                                        Label textLabel = new Label(user.getMessage());
+                                                        textLabel.setWrapText(true);
+                                                        textLabel.setMaxWidth(500);
+                                                        textLabel.setAlignment(Pos.CENTER_LEFT);
+                                                        container.getStyleClass().add("text-message-wrapper");
+                                                        textLabel.getStyleClass().add("label");
+                                                        container.getChildren().add(userName);;
+                                                        container.getChildren().add(textLabel);
+                                                    }
+                                                    messagesBox.getChildren().add(container);
+
                                                     break;
                                                 case ON_JOIN:
                                                     UserJoinedMessage userJoinedMessage = Mapper.objectMapper.convertValue(message.getMessageObject(),UserJoinedMessage.class);
@@ -209,10 +228,6 @@ public class ChatController {
 
 
         userListView.setItems(users);
-        messageListView.setItems(messages);
-
-        // Kullanıcı listesi için özel hücreler (avatar, durum vb.) burada ayarlanabilir.
-        // messageListView.setCellFactory(new MessageCellFactory());
     }
 
     public void closeSocket(){
@@ -253,14 +268,61 @@ public class ChatController {
             messageInput.clear();
 
             boolean isImageRequest = message.startsWith("/image -prompt");
-            SessionManager.user.setMessageType(isImageRequest ? User.MessageType.PROMPT: User.MessageType.TEXT);
+            boolean isLamaRequest = message.startsWith("/lama -prompt");
 
-            SessionManager.user.setMessage(isImageRequest?message.substring(message.indexOf("prompt")+7):message);
+            SessionManager.user.setMessageType(isImageRequest ? User.MessageType.PROMPT: isLamaRequest? User.MessageType.LAMA:User.MessageType.TEXT);
+
+            SessionManager.user.setMessage(isImageRequest || isLamaRequest?message.substring(message.indexOf("prompt")+7):message);
 
             Message messageNew = new Message<>(ON_MESSAGE, SessionManager.user);
             System.out.println(channel.isActive());
             System.out.println(message);
             try {
+                channel.writeAndFlush(Mapper.objectMapper.writeValueAsString(messageNew)+"\n");
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    public void lamaPrompt(){
+        String message = messageInput.getText();
+        if (!message.isEmpty()) {
+            messageInput.clear();
+
+            SessionManager.user.setMessageType(User.MessageType.LAMA);
+
+            SessionManager.user.setMessage(message);
+
+            Message messageNew = new Message<>(ON_MESSAGE, SessionManager.user);
+
+            try {
+                channel.writeAndFlush(Mapper.objectMapper.writeValueAsString(messageNew)+"\n");
+
+                SessionManager.user.setMessageType(User.MessageType.TEXT);
+                channel.writeAndFlush(Mapper.objectMapper.writeValueAsString(messageNew)+"\n");
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    public void imagePrompt(){
+        String message = messageInput.getText();
+        if (!message.isEmpty()) {
+            messageInput.clear();
+
+            SessionManager.user.setMessageType(User.MessageType.PROMPT);
+
+            SessionManager.user.setMessage(message);
+
+            Message messageNew = new Message<>(ON_MESSAGE, SessionManager.user);
+
+            try {
+                channel.writeAndFlush(Mapper.objectMapper.writeValueAsString(messageNew)+"\n");
+                SessionManager.user.setMessageType(User.MessageType.TEXT);
                 channel.writeAndFlush(Mapper.objectMapper.writeValueAsString(messageNew)+"\n");
             } catch (JsonProcessingException e) {
                 e.printStackTrace();

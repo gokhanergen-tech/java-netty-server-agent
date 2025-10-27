@@ -90,6 +90,68 @@
     -fx-wrap-text: true;
 }
 
+/* =================================================================== */
+/* MESAJ İÇERİK WRAPPER'LARI                                           */
+/* =================================================================== */
+
+/* Genel Mesaj Kutusu Ayarları */
+.image-message-wrapper,
+.text-message-wrapper {
+    -fx-padding: 8 12;
+    -fx-alignment: center-left;
+}
+
+/* --- GÖNDERİLEN MESAJLAR (Sağ Taraf) --- */
+.text-message-wrapper.sent {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    -fx-background-radius: 12 12 0 12;
+    -fx-padding: 10 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 6, 0.3, 0, 1);
+    -fx-alignment: center-right;
+}
+
+.text-message-wrapper.sent .label {
+    -fx-text-fill: white;
+    -fx-font-size: 1.1em;
+    -fx-wrap-text: true;
+}
+
+/* --- ALINAN MESAJLAR (Sol Taraf) --- */
+.text-message-wrapper.received {
+    -fx-background-color: linear-gradient(to bottom right, #2d3748, #1a202c);
+    -fx-background-radius: 12 12 12 0;
+    -fx-padding: 10 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0.3, 0, 1);
+    -fx-alignment: center-left;
+}
+
+.text-message-wrapper.received .label {
+    -fx-text-fill: #f0f0f0;
+    -fx-font-size: 1.1em;
+    -fx-wrap-text: true;
+}
+
+/* --- GÖRSEL MESAJLAR --- */
+.image-message-wrapper .image-view {
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.3, 0, 2);
+    -fx-max-width: 250px;
+    -fx-max-height: 250px;
+    -fx-object-fit: cover;
+}
+
+/* Hover efekti (isteğe bağlı) */
+.text-message-wrapper:hover,
+.image-message-wrapper:hover {
+    -fx-opacity: 0.95;
+    -fx-cursor: hand;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-transition: all 0.2s ease-in-out;
+}
 /* Yazı alanına odaklanınca */
 .message-input-area:focused {
     -fx-border-color: -fx-accent;

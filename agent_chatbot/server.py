@@ -1,5 +1,4 @@
 import asyncio
-import base64
 import json
 from agent import analyse_users
 from text_to_image import generate_image
@@ -13,7 +12,7 @@ async def handle_client(reader, writer):
 
     try:
         while True:
-            # read one line instead of raw bytes
+
             data = await reader.readline()
 
             if not data:
@@ -35,24 +34,13 @@ async def handle_client(reader, writer):
             process_type = _user.get("messageType")
             message = _user.get("message")
 
-            response_message = None
-
             if process_type == "TEXT":
-                # Agent işlemi simüle et
-                response_message = analyse_users(message)
+                asyncio.create_task(process_text(writer, message))
             elif process_type == "PROMPT":
-                # Base64 image handling
-                try:
-                    image_data = generate_image(message)
-        
-                    response_message = image_data
-                except Exception as e:
-                    response_message = -1
+                asyncio.create_task(process_prompt(writer, message))
             else:
-                response_message = -1
-
-            writer.write(f"{response_message}\n".encode())
-            await writer.drain()
+                writer.write(b"-1\n")
+                await writer.drain()
 
     except Exception as e:
         print(f"Error: {e}")
@@ -60,6 +48,22 @@ async def handle_client(reader, writer):
         writer.close()
         await writer.wait_closed()
         print(f"{addr} connection closed.")
+        
+async def process_text(writer, message):
+    try:
+        result = await asyncio.to_thread(analyse_users, message)
+    except Exception:
+        result = -1
+    writer.write(f"{result}\n".encode())
+    await writer.drain()
+
+async def process_prompt(writer, message):
+    try:
+        result = await asyncio.to_thread(generate_image, message)
+    except Exception:
+        result = -1
+    writer.write(f"{result}\n".encode())
+    await writer.drain()
 
 async def main():
     server = await asyncio.start_server(handle_client, HOST, PORT)

@@ -10,6 +10,7 @@
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ScrollPane?>
 <BorderPane fx:controller="com.socket.client.chat.ChatController"
             xmlns:fx="http://javafx.com/fxml"
             prefHeight="600.0" prefWidth="800.0"
@@ -26,7 +27,11 @@
 
     <center>
         <VBox styleClass="chat-area">
-            <ListView fx:id="messageListView" VBox.vgrow="ALWAYS" styleClass="message-list-view"/>
+            <ScrollPane  VBox.vgrow="ALWAYS" styleClass="message-list-view" fx:id="scrollBar">
+                <VBox  fx:id="messagesBox" >
+
+                </VBox>
+            </ScrollPane>
 
             <VBox styleClass="input-area" spacing="10">
                 <padding>
@@ -35,8 +40,16 @@
                 <TextArea onKeyReleased="#handleEnterReleased"
                           styleClass="message-input-area"
                           fx:id="messageInput"
+                          minHeight="100"
                           promptText="Write message..."
-                          wrapText="true"/> <HBox styleClass="input-button-bar" alignment="CENTER_RIGHT" spacing="10">
+                          wrapText="true"/>
+                <HBox styleClass="input-button-bar" alignment="CENTER_RIGHT" spacing="10">
+                    <Button styleClass="icon-button" onAction="#lamaPrompt">
+                      Ask Lama
+                    </Button>
+                    <Button styleClass="icon-button" onAction="#imagePrompt">
+                        Generate Image
+                    </Button>
                 <Button styleClass="icon-button, send-button" onAction="#sendMessage">
                     <graphic>
                         <FontIcon iconLiteral="anto-send"/>
@@ -46,5 +59,4 @@
             </VBox>
         </VBox>
     </center>
-
 </BorderPane>

@@ -3,7 +3,6 @@ package org.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -13,35 +12,50 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
+import org.server.agent.AgentWebClient;
+import org.server.lamaClient.LLamaAgent;
 import org.server.mappers.Mapper;
-import org.server.mappers.UserMapper;
 import org.server.model.Message;
 import org.server.model.User;
 import org.server.model.UserJoinedMessage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.Socket;
-import java.nio.charset.StandardCharsets;
+
+import java.io.ByteArrayOutputStream;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.*;
 
-import static org.server.agents.AnalyserAgent.agentReader;
-import static org.server.agents.AnalyserAgent.agentWriter;
-
+@Component
 public class NettyServerManager {
+
+    public static class Request{
+        private User user;
+        private String requestId;
+
+        public Request(User user, String requestId) {
+            this.user = user;
+            this.requestId = requestId;
+        }
+    }
 
     private static final int PORT = 8131;
 
     private final List<Channel> clients = new CopyOnWriteArrayList<>();
-    private static final Map<Channel, Socket> userToAgentMap = new HashMap<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final Map<String, List<UserJoinedMessage>> listMap = new HashMap<>();
     private final ConcurrentMap<Channel, UserJoinedMessage> userMap = new ConcurrentHashMap<>();
+
+    private final AgentWebClient agentWebClient;
+
+    @Autowired
+    public NettyServerManager(AgentWebClient agentWebClient) {
+        this.agentWebClient = agentWebClient;
+    }
+
 
     public void start() throws InterruptedException {
 
@@ -60,36 +74,19 @@ public class NettyServerManager {
                         protected void initChannel(SocketChannel ch) {
                             clients.add(ch);
 
-                            try {
-                                Socket agentSocket = new Socket("127.0.0.1", 9100);
-                                userToAgentMap.put(ch, agentSocket);
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                             ch.pipeline().addLast(new DelimiterBasedFrameDecoder(5 * 1024 * 1024,
                                     Unpooled.copiedBuffer("\n", CharsetUtil.UTF_8)));
 
-// Gelen stringleri decode et
                             ch.pipeline().addLast(new StringDecoder(CharsetUtil.UTF_8));
 
-// Giden mesajlar için encoder
                             ch.pipeline().addLast(new StringEncoder(CharsetUtil.UTF_8));
+
                             ch.pipeline().addLast(new SimpleChannelInboundHandler<String>() {
 
                                 @Override
                                 public void channelInactive(ChannelHandlerContext ctx) throws Exception {
                                     clients.remove(ctx.channel());
                                     disconnectUser(ch);
-                                    Socket agentSocket = userToAgentMap.get(ch);
-                                    if (agentSocket != null) {
-                                        try {
-                                            agentSocket.close();
-                                            userToAgentMap.remove(ctx);
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
                                     super.channelInactive(ctx);
                                 }
 
@@ -100,22 +97,47 @@ public class NettyServerManager {
                                     switch (message.getTopic()) {
                                         case ON_MESSAGE:
                                             User user = Mapper.objectMapper.convertValue(message.getMessageObject(),User.class);
-                                            Socket agentSocket = userToAgentMap.get(ch);
+                                            if(user.getMessageType()== User.MessageType.PROMPT){
 
-                                            if(agentSocket!=null){
-                                                agentWriter = new PrintWriter(agentSocket.getOutputStream(), true);
-                                                agentReader = new BufferedReader(new InputStreamReader(agentSocket.getInputStream()));
+                                                Flux<DataBuffer> stream = agentWebClient.sendToAgentGetStream(user);
+                                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-                                                agentWriter.println(UserMapper.userToJSON(user));
+                                                stream.subscribe(buffer -> {
+                                                    try {
+                                                        byte[] chunk = new byte[buffer.readableByteCount()];
+                                                        buffer.read(chunk);
+                                                        baos.write(chunk, 0, chunk.length);
+                                                    } finally {
+                                                        DataBufferUtils.release(buffer);
+                                                    }
+                                                }, error -> {
+                                                    error.printStackTrace();
+                                                }, () -> {
+                                                    String base64Image = Base64.getEncoder().encodeToString(baos.toByteArray());
+                                                    user.setMessage(base64Image);
+                                                    sendAllMessage(new Message<>(Message.MessageTopic.ON_MESSAGE, user));
+                                                });
+                                            } else if (user.getMessageType() == User.MessageType.LAMA) {
+                                                user.setMessage(user.getMessage());
+                                                CompletableFuture<Map> future = agentWebClient.sendToAgent(user, Map.class);
+                                                future.thenAccept(response -> {
+                                                    String messageResult = (String) response.get("response");
 
-                                                String response = agentReader.readLine();
+                                                    LLamaAgent.askToLama(messageResult);
+                                                });
+                                            } else{
+                                                CompletableFuture<Map> future = agentWebClient.sendToAgent(user, Map.class);
+                                                future.thenAccept(response -> {
+                                                    String messageResult = (String) response.get("response");
 
-                                                if(user.getMessageType()== User.MessageType.PROMPT)
-                                                    user.setMessage(response);
-                                                else
-                                                    user.setMessage(String.format("%s: %s", user.getName(), response));
+                                                    user.setMessage(messageResult);
 
-                                                sendAllMessage(new Message<>(Message.MessageTopic.ON_MESSAGE,user));
+                                                    if(user.getMessageType() == User.MessageType.LAMA)
+                                                        user.setMessageType(User.MessageType.TEXT);
+
+                                                    sendAllMessage(new Message<>(Message.MessageTopic.ON_MESSAGE, user));
+
+                                                });
                                             }
                                             break;
                                         case ON_JOIN:
@@ -141,7 +163,7 @@ public class NettyServerManager {
 
             ChannelFuture f = bootstrap.bind(PORT).sync();
             System.out.println("Netty Server started on port " + PORT);
-
+            LLamaAgent.connect();
             f.channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();

@@ -1,0 +1,26 @@
+
+	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8™€®Ά3J$9383b09e-86cc-49a0-a869-b6e012bf1e27
+r
+java:S37402"/Provide the parametrized type for this generic.(σ»γώ8€®Ά3J$3ad7d8a0-d2c5-4ed7-8296-0768093c5d8a
+r
+java:S3740F"/Provide the parametrized type for this generic.(τ€ƒ©8€®Ά3J$14bcce67-c347-4eee-a653-1aa4b6f97806
+w
+java:S3740h"/Provide the parametrized type for this generic.(±όÿÿÿÿ8€®Ά3J$71c655e4-603c-40ac-8d01-438e3e94ad82
+
+java:S13013"KReplace this "switch" statement by "if" statements to increase readability.(¬“„χ8€®Ά3J$bd73723a-ab68-46c4-8370-4ede0f9581c3
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ΐ¨ύΊϋÿÿÿÿ8ν­ΉΆ3
+‚
+java:S1118":Add a private constructor to hide the implicit public one.(’•Ρ®όÿÿÿÿ8¨€®Ά3J$eee30fb9-2736-4087-abc7-ab3eeea91ee8
+΅
+java:S2142_"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ύΎ8«€®Ά3J$8bca631e-0dd5-4fe5-b9aa-be999af2035f
+{
+java:S18545"8Remove this useless assignment to local variable "user".(ίΪζ8®€®Ά3J$e0693c9f-8975-493b-b885-f8f9ba35bbac
+›	java:S1313"YComplete cases by adding the missing enum constants or add a default case to this switch.(¬“„χ8―€®Ά3J$c04c7e85-4b7e-4dd0-ac4b-314ba2e5edb3
+{
+java:S11175"8Rename "user" which hides the field declared at line 28.(ίΪζ8°€®Ά3J$de59cdf6-d6c2-4498-a36d-5b09fe4ca11d
+l
+java:S14815")Remove this unused "user" local variable.(ίΪζ8±€®Ά3J$cdd74e63-e00d-4d62-8280-91934475d6f8
+r	java:S106I"+Replace this use of System.out by a logger.(ΎΊ¦”ÿÿÿÿÿ8³€®Ά3J$70953789-c22c-4053-9a22-44af9fb576cf
+m	java:S106]"+Replace this use of System.out by a logger.(Υ—8µ€®Ά3J$81e03295-79f9-4803-8f96-fc19bd27e2dd
+m	java:S106`"+Replace this use of System.out by a logger.(®Ήµ¨8µ€®Ά3J$dbb86a99-1035-49d2-ba7b-2b9b711698d8
+m	java:S106l"+Replace this use of System.out by a logger.(®Ήµ¨8α£®Ά3J$29f5e725-e117-43c6-8d67-a1ec6bda50ca
