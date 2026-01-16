@@ -18,13 +18,3 @@ who want to build scalable and asynchronous network applications using Netty.
 - 🛡️ Toxic message detection in chat
 
 ---
-
-## 📁 Project Structure
-
-```text
-java-netty-server-agent/
-├── agent_chatbot/           # Agent / Chatbot example
-├── client/                  # Netty Client
-├── socket_server_netty/     # Netty TCP Server
-├── .gitignore
-└── pom.xml                  # Maven configuration
